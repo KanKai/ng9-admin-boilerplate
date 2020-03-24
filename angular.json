@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "ng8-admin-jeerawat-dev"
+  "defaultProject": "ng8-admin-jeerawat-dev",
+  "cli": {
+    "analytics": "9fd12ec3-0a6f-4c67-b4eb-9a8d2d3b04f2"
+  }
 }

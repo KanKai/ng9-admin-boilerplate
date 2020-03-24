@@ -11,12 +11,16 @@ const routes: Routes = [
             {
                 path: '',
                 component: DashboardComponent
+            },
+            {
+                path: 'posts',
+                loadChildren: () => import('../../modules/posts/posts.module').then(m => m.PostsModule)
             }
         ]
     },
     {
         path: '',
-        redirectTo: '/',
+        redirectTo: '',
         pathMatch: 'full',
     },
 ];

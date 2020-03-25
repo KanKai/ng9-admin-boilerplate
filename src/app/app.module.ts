@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser'
-import { NgModule } from '@angular/core'
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -35,5 +35,6 @@ import { NgxSpinnerModule } from 'ngx-spinner'
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

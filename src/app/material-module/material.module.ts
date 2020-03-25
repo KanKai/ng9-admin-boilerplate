@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatIconModule } from '@angular/material/icon'
@@ -22,5 +22,6 @@ export const MAT_MODULE = [
 @NgModule({
   imports: [...MAT_MODULE],
   exports: [...MAT_MODULE],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MaterialModule {}

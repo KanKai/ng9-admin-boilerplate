@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { DefaultComponent } from './default.component'
 import { DefaultRoutingModule } from './default-routing.module'
@@ -10,5 +10,6 @@ import { DashboardService } from 'src/app/services/dashboard.service'
   declarations: [DefaultComponent],
   imports: [CommonModule, DefaultRoutingModule, SharedModule, FlexLayoutModule],
   providers: [DashboardService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DefaultModule {}

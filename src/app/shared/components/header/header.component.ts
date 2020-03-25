@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core'
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Output() toggleSizeBarForMe: EventEmitter<any> = new EventEmitter()
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  toggleSizeBar() {
+    this.toggleSizeBarForMe.emit()
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'))
+    }, 300)
   }
-
 }

@@ -3,8 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  version: '1.0.0',
+  production: false,
+  endPoint: 'http://localhost/api',
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

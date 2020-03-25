@@ -1,33 +1,41 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { DefaultComponent } from './default.component';
-import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
+import { RouterModule, Routes } from '@angular/router'
+import { NgModule } from '@angular/core'
+import { DefaultComponent } from './default.component'
 
 const routes: Routes = [
-    {
-        path: '',
-        component: DefaultComponent,
-        children: [
-            {
-                path: '',
-                component: DashboardComponent
-            },
-            {
-                path: 'posts',
-                loadChildren: () => import('../../modules/posts/posts.module').then(m => m.PostsModule)
-            }
-        ]
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
+    component: DefaultComponent,
+    data: {
+      breadcrumb: 'หน้าหลัก',
     },
-    {
-        path: '',
-        redirectTo: '',
-        pathMatch: 'full',
-    },
-];
-
+    children: [
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('../../modules/dashboard/dashboard.module').then(
+            (m) => m.DashboardModule
+          ),
+      },
+      {
+        path: 'posts',
+        loadChildren: () =>
+          import('../../modules/posts/posts.module').then((m) => m.PostsModule),
+        data: {
+          breadcrumb: 'จัดการข้อมูล',
+        },
+      },
+    ],
+  },
+]
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class DefaultRoutingModule { }
+export class DefaultRoutingModule {}

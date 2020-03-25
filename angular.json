@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng8-admin-jeerawat-dev": {
+    "ng9-admin-jeerawat-dev": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,23 +17,51 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng8-admin-jeerawat-dev",
+            "outputPath": "dist/ng9-admin-jeerawat-dev",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/theme.scss",
+              "src/styles/bootstrap.scss"
             ],
             "scripts": []
           },
           "configurations": {
+            "uat": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": true,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.uat.ts"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -46,6 +74,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -67,18 +96,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng8-admin-jeerawat-dev:build"
+            "browserTarget": "ng9-admin-jeerawat-dev:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng8-admin-jeerawat-dev:build:production"
+              "browserTarget": "ng9-admin-jeerawat-dev:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng8-admin-jeerawat-dev:build"
+            "browserTarget": "ng9-admin-jeerawat-dev:build"
           }
         },
         "test": {
@@ -88,10 +117,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
@@ -107,27 +133,25 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ng8-admin-jeerawat-dev:serve"
+            "devServerTarget": "ng9-admin-jeerawat-dev:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ng8-admin-jeerawat-dev:serve:production"
+              "devServerTarget": "ng9-admin-jeerawat-dev:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ng8-admin-jeerawat-dev",
+  "defaultProject": "ng9-admin-jeerawat-dev",
   "cli": {
     "analytics": "9fd12ec3-0a6f-4c67-b4eb-9a8d2d3b04f2"
   }

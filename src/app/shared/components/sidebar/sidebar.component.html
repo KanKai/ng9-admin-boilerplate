@@ -1,22 +1,37 @@
 <mat-nav-list>
   <div class="profile-card">
     <div class="header">
-      <h2>JeerawatDev</h2>
-      <h4>jeerawat@addtechhub.com</h4>
+      <h2>Demo Admin</h2>
+      <h4>gukaihero@gmail.com</h4>
     </div>
-    <img
-      src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"
-      alt="Jeerawat Keawsawat"
-    />
+    <img src="/assets/images/icons/user.png" alt="Jeerawat Keawsawat" />
   </div>
 
-  <div>Profile</div>
+  <mat-divider></mat-divider>
+
+  <h2 matSubheader>Pages</h2>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/"
+    >Dashboard</a
+  >
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts"
+    >Posts</a
+  >
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles"
+    >Articles</a
+  >
 
   <mat-divider></mat-divider>
 
-  menu
+  <h2 matSubheader>Tools</h2>
 
-  <mat-divider></mat-divider>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+    <mat-icon>import_contacts</mat-icon>
+    Contacts
+  </a>
 
-  another menu
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+    <mat-icon>contact_phone</mat-icon>
+    Leads
+  </a>
 </mat-nav-list>

@@ -1,17 +1,70 @@
-<div>Line Chart</div>
-
-<mat-divider></mat-divider>
-
 <div>
-    <div>Line Chart</div>
-    <div>Line Chart</div>
-    <div>Line Chart</div>
-    <div>Line Chart</div>
+  <app-widget-area [data]="bigCharts"></app-widget-area>
 </div>
 
+<br />
+
 <mat-divider></mat-divider>
 
-<div>
-    <div>Tables</div>
-    <div>Pie Charts</div>
+<br />
+
+<div
+  fxLayout="row"
+  fxLayout.lt-sm="column"
+  fxLayoutAlign.gt.sm="space-between center"
+  fxLayoutGap="20px"
+  class="stats-cards"
+>
+  <mat-card fxFlex="25">
+    <app-widget-card
+      label="New Users"
+      total="11k"
+      percentage="50"
+      [data]="cards"
+    ></app-widget-card>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-widget-card
+      label="User retention"
+      total="9k"
+      percentage="40"
+      [data]="cards"
+    ></app-widget-card>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-widget-card
+      label="User engagement"
+      total="7k"
+      percentage="30"
+      [data]="cards"
+    ></app-widget-card>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-widget-card
+      label="Referral"
+      total="5k"
+      percentage="20"
+      [data]="cards"
+    ></app-widget-card>
+  </mat-card>
+</div>
+
+<br />
+
+<mat-divider></mat-divider>
+
+<br />
+
+<div
+  fxLayout="row"
+  fxLayout.lt-sm="column"
+  fxLayoutAlign.gt.sm="space-between center"
+  fxLayoutGap="20px"
+>
+  <div fxFlex="60">
+    <app-widget-bar-chart [data]="barCharts"></app-widget-bar-chart>
+  </div>
+  <div fxFlex="40">
+    <app-widget-pie [data]="pieCharts"></app-widget-pie>
+  </div>
 </div>
